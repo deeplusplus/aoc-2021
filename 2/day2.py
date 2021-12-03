@@ -5,6 +5,7 @@ def main():
 
     x = 0
     y = 0
+    aim = 0
 
     for line in lines:
         split_line = line.split()
@@ -13,10 +14,11 @@ def main():
 
         if direction == "forward":
             x += magnitude
+            y = y + (aim * magnitude)
         elif direction == "down":
-            y += magnitude
+            aim += magnitude
         else:
-            y -= magnitude
+            aim -= magnitude
 
     print(x * y)
 
