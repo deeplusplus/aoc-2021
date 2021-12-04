@@ -7,7 +7,7 @@ class BingoCell:
         return self.cell_tuple[0]
 
     def mark_cell(self) -> None:
-        self.cell_tuple[1] = True
+        self.cell_tuple = (self.cell_tuple[0], True)
 
     def is_marked(self) -> bool:
         return self.cell_tuple[1]
