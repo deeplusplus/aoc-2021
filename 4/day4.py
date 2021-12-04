@@ -33,14 +33,19 @@ def main():
        board = board_from_lines(board_lines)
        board_list.append(board)
 
+    winning_board: BingoBoard = None
+    last_numer = 0
+
     for number in call_numbers:
         for board in board_list:
-            board.mark_number(int(number))
-            if board.is_winning_board():
-                print("A BOARD WON!")
-                board.print_board()
-                print(board.score(number))
-                return
+            if not board.is_winning_board():
+                board.mark_number(int(number))
+                if board.is_winning_board():
+                    winning_board = board
+                    last_numer = number
+                    
+    winning_board.print_board()
+    print(winning_board.score(last_numer))
 
 if __name__ == "__main__":
     main()
