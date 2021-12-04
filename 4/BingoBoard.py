@@ -36,10 +36,10 @@ class BingoBoard:
         for row in self.cell_rows:
             for cell in row:
                 if not cell.is_marked():
-                    sum += cell.value
+                    sum += cell.value()
         return sum
 
-    def board_score(self, last_called_number: int) -> int:
+    def score(self, last_called_number: int) -> int:
         return self.unmarked_sum() * last_called_number
 
     def print_board(self) -> None:
