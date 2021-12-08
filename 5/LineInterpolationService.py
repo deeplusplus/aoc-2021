@@ -5,8 +5,6 @@ class LineInterpolationService:
     
     @staticmethod
     def calculate_intermediate_tuples(point_pair: List[tuple]) -> List[tuple]:
-        # print(point_pair[1][0], point_pair[1][1])
-        # return list(bresenham(0, 9, 5, 9))
         return list(bresenham(point_pair[0][0], point_pair[0][1], point_pair[1][0], point_pair[1][1]))
 
     @staticmethod
