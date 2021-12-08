@@ -13,13 +13,16 @@ def main():
 
     point_space = PointSpace(x_y_max)
 
-    print(point_pairs[0])
+    # for point_pair in point_pairs:
+    for point_pair in point_pairs:
+        if point_pair[0][0] == point_pair[1][0] or point_pair[0][1] == point_pair[1][1]:
+            points_to_fill = LineInterpolationService.calculate_intermediate_tuples(point_pair)
+            for point in points_to_fill:
+                point_space.plot_point(point)            
 
-    points_to_fill = LineInterpolationService.extract_line_tuples(point_pairs[0], point_pairs[1])
-    for point in points_to_fill:
-        point_space.plot_point(point)
 
     point_space.print_graph()
+    print(point_space.count_of_intersections())
 
 
 
